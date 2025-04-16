@@ -11,15 +11,12 @@ export async function POST(req) {
     console.log(`Received webhook with ID ${id} and event type of ${eventType}`)
     console.log('Webhook payload:', evt.data)
 
-    if(eventType === 'user.created'){
-        console.log('User created');
-    }
-    if(eventType === 'user.updated'){
-        console.log('User updated');
-    }
-    if(eventType === 'user.deleted'){
-        console.log('User deleted');
-    }
+    
+    
+    if (evt.type === 'user.created') {
+        console.log('userId:', evt.data.id)
+      }
+    
 
     return new Response('Webhook received', { status: 200 })
   } catch (err) {
